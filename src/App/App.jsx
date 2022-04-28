@@ -55,7 +55,10 @@ function App() {
 
   const updateShop = async (shopData) => {}
 
-  const deleteBeer = async (id) => {}
+  const deleteBeer = async (id) => {
+    await beerService.deleteOne(id)
+    setBeers(beers.filter(beer => beer.id !== parseInt(id)))
+  }
 
   const deleteShop = async (id) => {}
 

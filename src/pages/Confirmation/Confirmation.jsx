@@ -7,11 +7,11 @@ const Confirmation = (props) => {
   const { id } = useParams()
   const { state } = useLocation()
   const navigate = useNavigate()
-  const resource = props.deleteCat ? 'cats' : 'toys'
+  const resource = props.deleteBeer ? 'beers' : 'shops'
 
   const handleDelete = () => {
-    props.deleteCat && props.deleteCat(id)
-    props.deleteToy && props.deleteToy(id)
+    props.deleteBeer && props.deleteBeer(id)
+    props.deleteShop && props.deleteShop(id)
     navigate(`/${resource}`)
   }
 
