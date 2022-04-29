@@ -4,7 +4,7 @@ import './CatDetails.css'
 
 // Services
 // Services
-import { getOne } from '../../services/beers'
+import { getOne, assocShop } from '../../services/beers'
 
 // Components
 import Tastings from './components/Tastings'
@@ -17,7 +17,13 @@ const BeerDetails = ({ catImages, user }) => {
   const [availableShops, setAvailableShops] = useState([])
   const idx = Math.floor(Math.random() * (catImages.length))
 
-  const addToCollection = async (e) => {}
+  const addToCollection = async (e) => {
+    e.preventDefault()
+    const shopId = parseInt(e.target.id)
+    const updatedBeer = await assocShop(beer.id, shopId)
+    setAvailableShops(availableShops.filter(shop => shopId !== shop.id))
+    setBeer({...updatedBeer})
+  }
 
   useEffect(() => {
     const fetchOne = async () => {

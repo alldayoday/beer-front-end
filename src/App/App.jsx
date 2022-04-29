@@ -18,7 +18,7 @@ import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute'
 // Services
 import * as authService from '../services/authService'
 import * as beerService from '../services/beers'
-
+import * as shopService from '../services/shops'
 // Image Assets
 import CoolCat from '../assets/cool-cat.svg'
 import NerdCat from '../assets/nerd-cat.svg'
@@ -44,7 +44,10 @@ function App() {
     setBeers([...beers, beer])
   }
 
-  const addShop = async (shopData) => {}
+  const addShop = async (shopData) => {
+    const shop = await shopService.create(shopData)
+    setShops([...shops, shop])
+  }
 
   const updateBeer = async (beerData) => {
     const updatedBeer = await beerService.update(beerData)
@@ -76,6 +79,14 @@ function App() {
     fetchData()
   }, [])
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await shopService.getAll()
+      setShops(data)
+    }
+    fetchData()
+  }, [])
+  
   return (
     <>
       <Header user={user} handleLogout={handleLogout} />

@@ -3,33 +3,40 @@ import { useParams } from 'react-router-dom'
 import './ToyDetails.css'
 
 // Services
-
+// Services
+import { getOne } from '../../services/shops'
 
 // Components
 import ShopActions from './components/ShopActions'
-import ToyCard from '../../components/ToyCard/ToyCard'
+import ShopCard from '../../components/ShopCard/ShopCard'
 
-const ToyDetails = ({ user }) => {
+const ShopDetails = ({ user }) => {
   const { id } = useParams()
-  const [toy, setToy] = useState(null)
+  const [shop, setShop] = useState(null)
 
-  useEffect(() => {}, [id])
+  useEffect(() => {
+    const fetchOne = async () => {
+      const shopData = await getOne(id)
+      setShop(shopData)
+    }
+    fetchOne()
+  }, [id])
 
   return (
-    toy &&
+    shop &&
     <>
       <section className="toy-details-container">
         <div className="toy-img">
-          <ToyCard toy={toy} />
+          <ShopCard shop={shop} />
         </div>
         <div className="toy-details">
-          <h1>{toy.name}</h1>
-          <p>{toy.description}</p>
-          <ShopActions toy={toy} user={user} />
+          <h1>{shop.name}</h1>
+          <p>{shop.location}</p>
+          <ShopActions shop={shop} user={user} />
         </div>
       </section>
     </>
   )
 }
 
-export default ToyDetails
+export default ShopDetails

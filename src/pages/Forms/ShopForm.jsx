@@ -6,20 +6,20 @@ import { useParams, useNavigate } from 'react-router-dom'
 
 
 // Components
-import ToyInput from './ToyInput'
+import ShopInput from './ShopInput'
 
 // Image Assets
 import NerdCat from '../../assets/nerd-cat.svg'
 
-const ToyForm = (props) => {
+const ShopForm = (props) => {
   const { id } = useParams()
   const navigate = useNavigate()
   const [form, setForm] = useState({})
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    id ? props.updateToy(form) : props.addToy(form)
-    navigate(`/toys`)
+    id ? props.updateShop(form) : props.addShop(form)
+    navigate(`/shops`)
   }
 
   const handleChange = (e) => {
@@ -32,14 +32,14 @@ const ToyForm = (props) => {
     <>
       <div className="page-header">
         {id
-          ? <h1>Edit Toy</h1>
-          : <><h1>Add Toy</h1><img src={NerdCat} alt="A cat using a computer" /></>
+          ? <h1>Edit Shop</h1>
+          : <><h1>Add Shop</h1><img src={NerdCat} alt="A cat using a computer" /></>
         }
       </div>
 
       <section className="form-container">
         <form onSubmit={handleSubmit}>
-          <ToyInput form={form} handleChange={handleChange} />
+          <ShopInput form={form} handleChange={handleChange} />
           <button type="submit" className="btn submit">Submit!</button>
         </form>
       </section>
@@ -47,4 +47,4 @@ const ToyForm = (props) => {
   )
 }
 
-export default ToyForm
+export default ShopForm
