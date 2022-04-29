@@ -57,12 +57,12 @@ const BeerDetails = ({ catImages, user }) => {
           user={user}
           setBeer={setBeer}
         />
-        {/* <ShopCollection
+        <ShopCollection
           beer={beer}
           user={user}
           shops={availableShops}
           addToCollection={addToCollection}
-        /> */}
+        />
       </div>
     </>
   )

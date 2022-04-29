@@ -1,19 +1,19 @@
 import { Link } from 'react-router-dom'
 
-const ToyContainer = ({ toy, addToCollection }) => {
+const ShopContainer = ({ shop, addToCollection }) => {
   return (
-    <div key={toy.id} className="toy-container">
-      <div className="color-block" style={{ backgroundColor: toy.color }}></div>
-      <Link to={`/toys/${toy.id}`}>
-        <p>{toy.name}</p>
+    <div key={shop.id} className="toy-container">
+      <div className="color-block" style={{ backgroundColor: shop.vibe }}></div>
+      <Link to={`/shops/${shop.id}`}>
+        <p>{shop.name}</p>
       </Link>
       {addToCollection &&
-        <form id={toy.id} onSubmit={addToCollection}>
-          <button type="submit" className="btn submit">Give toy</button>
+        <form id={shop.id} onSubmit={addToCollection}>
+          <button type="submit" className="btn submit">Add Shop</button>
         </form>
       }
     </div>
   )
 }
 
-export default ToyContainer
+export default ShopContainer
