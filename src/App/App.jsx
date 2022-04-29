@@ -56,7 +56,12 @@ function App() {
     )))
   }
 
-  const updateShop = async (shopData) => {}
+  const updateShop = async (shopData) => {
+    const updatedShop = await shopService.update(shopData)
+    setShops(shops.map((shop) => (
+      shop.id === updatedShop.id ? updatedShop : shop
+    )))
+  }
 
   const deleteBeer = async (id) => {
     await beerService.deleteOne(id)
@@ -86,7 +91,7 @@ function App() {
     }
     fetchData()
   }, [])
-  
+
   return (
     <>
       <Header user={user} handleLogout={handleLogout} />

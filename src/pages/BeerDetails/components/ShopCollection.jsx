@@ -10,7 +10,7 @@ const ShopCollection = ({ beer, shops, user, addToCollection }) => {
   return (
     <section className="toys">
       <div className="subsection-title">
-        <h2>Toys</h2>
+        <h2>Shops</h2>
         <img src={StringToy} alt="A ball of string" />
         <img src={MouseToy} alt="A mouse" />
         <img src={FishToy} alt="A fishy toy" />
@@ -19,7 +19,7 @@ const ShopCollection = ({ beer, shops, user, addToCollection }) => {
       <div className="subsection-content">
         {beer.shops.length
           ? beer.shops.map((shop) => <ShopContainer key={shop.id} shop={shop} />)
-          : <p className="no-toys">{beer.name} doesn't have any shops 😞</p>
+          : <p className="no-toys">We haven't located this beer 😞</p>
         }
       </div>
       {user.id === beer.profile_id &&

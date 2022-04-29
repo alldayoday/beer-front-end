@@ -1,14 +1,14 @@
 import { useNavigate } from 'react-router-dom'
 
-const ToyActions = ({ toy, user }) => {
+const ShopActions = ({ shop, user }) => {
   const navigate = useNavigate()
   return (
-    toy.profile_id === user.id &&
+    shop.profile_id === user.id &&
     <div className="actions">
-      <button className="btn warn" onClick={() => navigate(`/toys/${toy.id}/edit`, { state: toy })}>Edit</button>
-      <button className="btn danger" onClick={() => navigate(`/toys/${toy.id}/confirmation`, { state: toy })}>Delete</button>
+      <button className="btn warn" onClick={() => navigate(`/shops/${shop.id}/edit`, { state: shop })}>Edit</button>
+      <button className="btn danger" onClick={() => navigate(`/shops/${shop.id}/confirmation`, { state: shop })}>Delete</button>
     </div>
   )
 }
 
-export default ToyActions
+export default ShopActions

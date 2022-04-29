@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
 // Services
-
+import { getOne } from '../../services/shops'
 
 // Components
 import ShopInput from './ShopInput'
@@ -26,7 +26,19 @@ const ShopForm = (props) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  useEffect(() => {}, [id])
+  useEffect(() => {
+    const fetchOne = async () => {
+      const shopData = await getOne(id)
+      setForm({
+        id: shopData.id,
+        name: shopData.name,
+        vibe: shopData.vibe,
+        location: shopData.location,
+      })
+    }
+    id ? fetchOne() : setForm({ color: '#ff0000' })
+    return () => setForm({})
+  }, [id])
 
   return (
     <>
