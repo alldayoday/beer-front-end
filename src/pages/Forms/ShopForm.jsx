@@ -36,7 +36,7 @@ const ShopForm = (props) => {
         location: shopData.location,
       })
     }
-    id ? fetchOne() : setForm({ color: '#ff0000' })
+    id ? fetchOne() : setForm({ vibe: '#ff0000' })
     return () => setForm({})
   }, [id])
 

@@ -11,7 +11,7 @@ const ShopInput = ({ form, handleChange }) => {
         value={form.location ? form.location : ''} onChange={handleChange} id="description"
         required name="location" type="text" placeholder="Location" autoComplete="off"
       />
-      <label htmlFor="color">Vibe</label>
+      <label htmlFor="vibe">Vibe</label>
       <input
         value={form.vibe ? form.vibe : '#ff0000'} onChange={handleChange} id="color"
         required name="vibe" type="color" placeholder="Vibe" autoComplete="off"
