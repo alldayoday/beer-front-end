@@ -7,7 +7,7 @@ import './CatDetails.css'
 import { getOne } from '../../services/beers'
 
 // Components
-import Feedings from './components/Feedings'
+import Tastings from './components/Tastings'
 import BeerActions from './components/BeerActions'
 import ShopCollection from './components/ShopCollection'
 
@@ -38,16 +38,19 @@ const BeerDetails = ({ catImages, user }) => {
         </div>
         <div className="cat-details">
           <h1>{beer.name}</h1>
-          <p>{beer.description}</p>
+          <p>Description: {beer.description}</p>
+          <p>Style: {beer.style}</p>
+          <p>From: {beer.brewery} in {beer.location}</p>
+
           <BeerActions beer={beer} user={user} />
         </div>
       </section>
       <div className="feedings-toy-container">
-        {/* <Feedings
+        <Tastings
           beer={beer}
           user={user}
           setBeer={setBeer}
-        /> */}
+        />
         {/* <ShopCollection
           beer={beer}
           user={user}
