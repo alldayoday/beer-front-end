@@ -68,7 +68,10 @@ function App() {
     setBeers(beers.filter(beer => beer.id !== parseInt(id)))
   }
 
-  const deleteShop = async (id) => {}
+  const deleteShop = async (id) => {
+    await shopService.deleteOne(id)
+    setShops(shops.filter(shop => shop.id !== parseInt(id)))
+  }
 
   const handleLogout = () => {
     authService.logout()
