@@ -26,6 +26,8 @@ import HappyCat from '../assets/happy-cat.svg'
 import CatInBox from '../assets/cat-in-box.svg'
 import TeaCupCat from '../assets/teacup-cat.svg'
 import SkaterCat from '../assets/sk8r-boi-cat.svg'
+import Beer from '../assets/beer.svg';
+
 
 function App() {
   const navigate = useNavigate()
@@ -34,9 +36,10 @@ function App() {
   const [user, setUser] = useState(authService.getUser())
 
   const catImages = [
-    SkaterCat, CoolCat,
-    NerdCat, HappyCat,
-    CatInBox, TeaCupCat,
+    // SkaterCat, CoolCat,
+    // NerdCat, HappyCat,
+    // CatInBox, TeaCupCat,
+    Beer,
   ]
 
   const addBeer = async (beerData) => {

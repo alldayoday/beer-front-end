@@ -22,7 +22,7 @@ const ShopCollection = ({ beer, shops, user, addToCollection }) => {
           : <p className="no-toys">We haven't located this beer 😞</p>
         }
       </div>
-      {user.id === beer.profile_id &&
+
         <>
           <h3>Found At</h3>
           <div className="subsection-content">
@@ -32,7 +32,7 @@ const ShopCollection = ({ beer, shops, user, addToCollection }) => {
             }
           </div>
         </>
-      }
+
     </section>
   )
 }

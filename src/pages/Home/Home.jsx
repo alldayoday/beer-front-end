@@ -6,6 +6,7 @@ import { login, getUser } from '../../services/authService'
 
 import LogoType from '../../assets/logotype.svg'
 import Splash from '../../assets/splash.svg'
+import Beer from '../../assets/beer.svg'
 
 
 const Home = ({ user, setUser }) => {
@@ -20,7 +21,7 @@ const Home = ({ user, setUser }) => {
     await login(form)
     const currentUser = getUser()
     setUser(currentUser)
-    navigate('/cats')
+    navigate('/beers')
   }
 
   const handleChange = (e) => {
@@ -31,9 +32,8 @@ const Home = ({ user, setUser }) => {
     <div className="home-container">
       <section className="logo-container" >
         <div className="cat-logo-container">
-          <img src={Splash} alt="The Cat Collector Cat" />
+          <img src={Beer} alt="The Cat Collector Cat" />
         </div>
-        <img src={LogoType} alt="Text reads: Cat Collector" />
       </section >
       {!user &&
         <section className="login-container">

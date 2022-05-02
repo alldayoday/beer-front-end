@@ -1,12 +1,14 @@
 import { NavLink } from 'react-router-dom'
 import Logo from '../../../assets/header-logo.svg'
+import Beer from '../../../assets/beer.svg'
 
 const HeaderLogo = () => {
   return (
     <div className="header-logo-container">
       <NavLink to='/'>
         <img
-          src={Logo}
+        id="headerLogo"
+          src={Beer}
           alt="The Cat Collector Logo"
         />
       </NavLink>
